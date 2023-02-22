@@ -1,11 +1,13 @@
 import * as actionType from "../action/action-type"
 export default function reducer(state = 6, action) {
-    if (action.type === actionType.INCREASE) {
-        return state + 1
-    } else if (action.type === actionType.DECREASE){
-        return state - 1
-    }else if(action.type === actionType.SET){
-        return action.payload
+    switch (action.type) {
+        case actionType.INCREASE:
+            return state + 1
+        case actionType.DECREASE:
+            return state - 1
+        case actionType.SET:
+            return action.payload
+        default:
+           return state
     }
-    return state  //如果没有返回的话，第一次传递的10是undefined
 }
