@@ -10,9 +10,9 @@ export function getDecrease(){
     })
 }
 
-export function getSet(payLoad){
+export function getSet(payload){
     return ({
         type:actionType.SET,
-        payLoad
+        payload
     })
 }

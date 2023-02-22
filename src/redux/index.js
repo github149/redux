@@ -3,7 +3,7 @@
  * @Author: maple wang
  * @Date: 2023-02-21 17:07:42
  * @LastEditors: maple wang
- * @LastEditTime: 2023-02-22 16:10:55
+ * @LastEditTime: 2023-02-22 16:48:15
  */
 import {createStore} from "redux"
 /**
@@ -11,21 +11,19 @@ import {createStore} from "redux"
  * @params state表示之前的仓库中的数据
  * @params action 描述要操作的什么的对象
  */
-
+import * as actionType from "./action/action-type"
+import * as createAction from "./action/createAction"
 function reducer(state, action) {
-    if (action.type === "increase") {
+    if (action.type === actionType.INCREASE) {
         return state + 1
-    } else if (action.type === "decrease"){
+    } else if (action.type === actionType.DECREASE){
         return state - 1
-    }else if(action.type === "set"){
+    }else if(action.type === actionType.SET){
         return action.payload
     }
     return state  //如果没有返回的话，第一次传递的10是undefined
 }
 const store = createStore(reducer,6)
 console.log(store.getState())
-store.dispatch({
-    type:'set',
-    payload:111
-})
+store.dispatch(createAction.getSet(10))
 console.log(store.getState())
