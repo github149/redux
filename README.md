@@ -65,6 +65,8 @@ Reducer是用于改变数据的函数
 3. reducer被调用的时机
    通过store.dispatch,分发一个action,此时会调用reducer
    当创建一个仓库的时候会调用reducer,可以利用这一点在reducer设置一个默认状态
+4. reducer内部通常使用switch来判断type值
+
 
 
 
