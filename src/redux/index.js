@@ -18,17 +18,14 @@ function reducer(state, action) {
     } else if (action.type === "decrease"){
         return state - 1
     }else if(action.type === "set"){
-        return action.payLoad
+        return action.payload
     }
     return state  //如果没有返回的话，第一次传递的10是undefined
 }
 const store = createStore(reducer,6)
-class Action {
-    constructor(type){
-        this.type = type
-    }
-}
-const action = new Action('increase')
 console.log(store.getState())
-store.dispatch(action)
+store.dispatch({
+    type:'set',
+    payload:111
+})
 console.log(store.getState())
