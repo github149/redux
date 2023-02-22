@@ -3,7 +3,7 @@
  * @Author: maple wang
  * @Date: 2023-02-21 17:07:42
  * @LastEditors: maple wang
- * @LastEditTime: 2023-02-22 16:52:55
+ * @LastEditTime: 2023-02-22 17:06:32
  */
 import {createStore,bindActionCreators} from "redux"
 /**
@@ -13,7 +13,7 @@ import {createStore,bindActionCreators} from "redux"
  */
 import * as actionType from "./action/action-type"
 import * as createAction from "./action/createAction"
-function reducer(state, action) {
+function reducer(state = 6, action) {
     if (action.type === actionType.INCREASE) {
         return state + 1
     } else if (action.type === actionType.DECREASE){
@@ -23,7 +23,7 @@ function reducer(state, action) {
     }
     return state  //如果没有返回的话，第一次传递的10是undefined
 }
-const store = createStore(reducer,6)
+const store = createStore(reducer)
 console.log(store.getState())
 const bindAction = bindActionCreators(createAction,store.dispatch)
 bindAction.getSet(666)

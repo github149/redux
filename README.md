@@ -48,7 +48,7 @@ action 通过dispatch的方式分发action,store中将传递action给reducer进�
 二、 action中必须有type属性，该属性用于描述操作的类型
    但是，没有对type的类型做出要求
 三、 在大型项目中，由于操作的类型非常多，为了避免硬编码（hard code）,会将action的类型存放到一个或一些单独的文件中。
-四、通常使用payload属性表示附加数据
+
 五、为了方便传递action,通常使用action创建函数，来创建action
    1.action创建函数应该为无副作用的纯函数
        纯函数：
@@ -58,6 +58,13 @@ action 通过dispatch的方式分发action,store中将传递action给reducer进�
 六、为了方便action创建函数来分发action,redux提供了一个函数
 ```bindActionCreators```,该函数用于增强action创建函数的功能，使它不仅可以创建action,并且创建后会自动完成分发。
 
+## Reducer
+Reducer是用于改变数据的函数
+1. 一个数据仓库，有且只有一个reducer,并且通常情况下，一个工程只有一个仓库，因此，一个系统只有一个reducer
+2. 为了方便管理，通常会将reducer放到单独的文件夹中
+3. reducer被调用的时机
+   通过store.dispatch,分发一个action,此时会调用reducer
+   当创建一个仓库的时候会调用reducer,可以利用这一点在reducer设置一个默认状态
 
 
 
