@@ -3,9 +3,9 @@
  * @Author: maple wang
  * @Date: 2023-02-21 17:07:42
  * @LastEditors: maple wang
- * @LastEditTime: 2023-02-22 16:48:15
+ * @LastEditTime: 2023-02-22 16:52:55
  */
-import {createStore} from "redux"
+import {createStore,bindActionCreators} from "redux"
 /**
  * reducer本质是一个普通函数,返回一个新的状态
  * @params state表示之前的仓库中的数据
@@ -25,5 +25,6 @@ function reducer(state, action) {
 }
 const store = createStore(reducer,6)
 console.log(store.getState())
-store.dispatch(createAction.getSet(10))
+const bindAction = bindActionCreators(createAction,store.dispatch)
+bindAction.getSet(666)
 console.log(store.getState())
